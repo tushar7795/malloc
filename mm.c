@@ -67,6 +67,15 @@ team_t team = {
 #define SET_PREV_FREE(bp, previous) (*((void **)(bp)) = previous)
 #define SET_NEXT_FREE(bp, next) (*((void **)(bp + WSIZE)) = next)
 
+/* helper function prototype */
+void *extend_heap(size_t words);
+void addFreeBlock(void *bp) ;
+void delFreeBlock(void *bp) ;
+void *coalesce(void *bp);
+void *find_fit(size_t asize);
+void place(void *bp, size_t asize);
+/*end of helper functions prototype*/
+
 /* Pointers required for maintaining free list */
 
 void *heap_listp;
